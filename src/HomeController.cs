@@ -12,7 +12,7 @@ namespace Greetings {
         public async Task<IActionResult> Index () {
            var filePath = Path.Combine (Directory.GetCurrentDirectory (), "src/server.exe/index.html");
 
-           using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+           using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
            using (var ms = new MemoryStream())
            {
              await stream.CopyToAsync(ms);
