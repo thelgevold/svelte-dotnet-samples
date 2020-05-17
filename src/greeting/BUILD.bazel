@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_svelte//:defs.bzl", "svelte", "bundle_prod")
+
+svelte(
+  name = "Greeting",
+  entry_point = "Greeting.svelte",
+  srcs = ["main.js"]
+)
+
+bundle_prod(
+  name = "bundle_prod",
+  entry_point = "main.js",
+  deps = [
+    ":Greeting"
+  ],
+)
