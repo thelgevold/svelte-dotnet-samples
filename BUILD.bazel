@@ -1,0 +1,6 @@
+exports_files([
+    # Let ts_library targets reference the root tsconfig.json file
+    "tsconfig.json",
+    "node_modules/msgpack5/dist/msgpack5.min.js",
+    "node_modules/@msgpack/msgpack/dist.es5/msgpack.js"
+])

@@ -1,5 +1,12 @@
 load("@io_bazel_rules_dotnet//dotnet:defs.bzl", "core_binary")
 
+genrule(
+    name = "msgpack5",
+    srcs = ["//:node_modules/@msgpack/msgpack/dist.es5/msgpack.js"],
+    outs = ["msgpack5.min.js"],
+    cmd = "cp $< $@",
+)
+
 core_binary(
     name = "server.exe",
     srcs = glob([
@@ -7,10 +14,12 @@ core_binary(
     ]),
     deps = [
         "@io_bazel_rules_dotnet//dotnet/stdlib.core:Microsoft.AspNetCore.App",
-        "@io_bazel_rules_dotnet//dotnet/stdlib.core:libraryset"
+        "@io_bazel_rules_dotnet//dotnet/stdlib.core:libraryset",
+        "@messagepack.aspnetcoremvcformatter//:netcoreapp3.1_core"
     ],
     data = [
       ":index.html",
+      ":msgpack5",
       "//src/greeting:bundle_prod"
     ]
 )
