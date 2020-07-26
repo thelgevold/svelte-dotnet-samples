@@ -9,3 +9,5 @@ This starts a .Net Core server that serves a Svelte frontend application
 Blog post: 
 
 https://www.syntaxsuccess.com/viewarticle/developing-svelte-with-dotnet
+
+https://www.syntaxsuccess.com/viewarticle/streaming-messagepack-api-with-svelte-and-asp-net-core
